@@ -25,11 +25,11 @@ export default function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/site/logo.png"
-            alt="Vesoz"
-            width={130}
-            height={40}
-            className="h-9 w-auto object-contain"
+            src="/images/site/gover-logo.svg"
+            alt="Gover Garden Centre"
+            width={320}
+            height={157}
+            className="h-16 w-auto sm:h-20 object-contain"
             priority
           />
         </Link>

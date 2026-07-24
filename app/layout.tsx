@@ -6,8 +6,11 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 
 export const metadata: Metadata = {
-  title: "Vesoz",
-  description: "Vesoz online store",
+  title: "Gover Garden Centre",
+  description: "Gover Garden Centre online store",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -17,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="flex min-h-full flex-col font-sans">
+      <body className="flex min-h-full flex-col font-sans" suppressHydrationWarning>
         <CartProvider>
           <Header />
           <CartDrawer />

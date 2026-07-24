@@ -49,36 +49,63 @@ export default function Home() {
 
       {/* Featured Categories */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-10 flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        <div className="mb-12 text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-neutral-800 sm:text-3xl">
             Featured Categories
           </h2>
+          <div className="mx-auto mt-2 h-[3px] w-12 rounded-full bg-emerald-500" />
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {collectionsList.slice(1).map((c) => {
-            const sample = getProductsByCollection(c.handle)[0];
-            return (
-              <Link
-                key={c.handle}
-                href={`/collections/${c.handle}`}
-                className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100"
-              >
-                {sample && (
-                  <Image
-                    src={sample.image}
-                    alt={c.title}
-                    fill
-                    className="object-cover transition duration-300 group-hover:scale-105"
-                  />
-                )}
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/50 to-transparent p-5">
-                  <span className="text-lg font-semibold text-white">
-                    {c.title}
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              title: "Plants",
+              count: 18,
+              handle: "top-rated",
+              bg: "bg-[#d8f8e8]", // light mint blue/green
+              image: "/images/products/1-new-and-sale-badge-product.png",
+            },
+            {
+              title: "Pots",
+              count: 14,
+              handle: "featured",
+              bg: "bg-[#e2f9d7]", // soft pastel green
+              image: "/images/categories/pots.png",
+            },
+            {
+              title: "Soils",
+              count: 12,
+              handle: "best-seller",
+              bg: "bg-[#d9f5fc]", // soft cyan/sky blue
+              image: "/images/categories/soils.png",
+            },
+            {
+              title: "Gardening Decor",
+              count: 18,
+              handle: "top-rated",
+              bg: "bg-[#faead6]", // soft warm peach/beige
+              image: "/images/categories/decor.png",
+            },
+          ].map((cat, idx) => (
+            <Link
+              key={idx}
+              href={`/collections/${cat.handle}`}
+              className={`group relative flex h-[320px] flex-col items-center justify-end overflow-hidden rounded-2xl ${cat.bg} p-4 transition-transform duration-300 hover:-translate-y-1`}
+            >
+              <Image
+                src={cat.image}
+                alt={cat.title}
+                fill
+                className="object-cover mix-blend-multiply transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="relative z-10 w-[90%] rounded-full bg-white/95 py-2.5 text-center shadow-md backdrop-blur-sm transition-all group-hover:bg-white group-hover:shadow-lg">
+                <h3 className="text-sm font-bold text-neutral-800">
+                  {cat.title}
+                </h3>
+                <p className="text-[11px] text-neutral-500">{cat.count} Products</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t border-neutral-200 bg-neutral-50">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
         <div>
-          <h3 className="text-lg font-semibold tracking-wide">VESOZ</h3>
+          <h3 className="text-lg font-bold tracking-wide text-[#006837]">GOVER GARDEN CENTRE</h3>
           <p className="mt-3 text-sm text-neutral-600">
             123 Main Street, Anytown, CA 12345 – USA
           </p>

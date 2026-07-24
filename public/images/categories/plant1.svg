@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="100%" height="100%">
+  <defs>
+    <!-- Pot Gradients -->
+    <linearGradient id="potGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="35%" stop-color="#ffffff" />
+      <stop offset="70%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+    <linearGradient id="soilGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#332211" />
+      <stop offset="100%" stop-color="#553311" />
+    </linearGradient>
+    
+    <!-- Leaf Gradients -->
+    <linearGradient id="leafGradTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="50%" stop-color="#16a34a" />
+      <stop offset="100%" stop-color="#14532d" />
+    </linearGradient>
+    <linearGradient id="leafGradDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+
+    <!-- Drop Shadow for Pot -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="8" flood-color="#000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="150" cy="358" rx="55" ry="10" fill="#000000" opacity="0.12" filter="blur(4px)" />
+
+  <!-- Potted Base (Realistic 3D White Pot) -->
+  <g filter="url(#shadow)">
+    <!-- Base -->
+    <path d="M110,305 L190,305 L182,352 Q180,358 150,358 Q120,358 118,352 Z" fill="url(#potGrad1)" />
+    <!-- Lip -->
+    <ellipse cx="150" cy="305" rx="40" ry="9" fill="url(#potGrad1)" stroke="#cbd5e1" stroke-width="0.5" />
+    <!-- Soil -->
+    <ellipse cx="150" cy="305" rx="36" ry="7" fill="url(#soilGrad)" />
+  </g>
+
+  <!-- Palm Stems -->
+  <g stroke-linecap="round">
+    <path d="M150,305 Q145,230 148,135" fill="none" stroke="#15803d" stroke-width="4.5" />
+    <path d="M150,305 Q132,225 110,165" fill="none" stroke="#166534" stroke-width="4" />
+    <path d="M150,305 Q168,220 188,160" fill="none" stroke="#15803d" stroke-width="4" />
+    <path d="M150,305 Q120,250 85,200" fill="none" stroke="#22c55e" stroke-width="3.5" />
+    <path d="M150,305 Q180,245 215,190" fill="none" stroke="#166534" stroke-width="3.5" />
+  </g>
+
+  <!-- Realistic Feathery Leaves (Fronds) -->
+  <!-- Top Center Crown -->
+  <g fill="none" stroke-linecap="round">
+    <!-- Main Stem 1 Fronds -->
+    <path d="M148,135 Q115,100 80,90" stroke="url(#leafGradTop)" stroke-width="2.5" />
+    <path d="M148,135 Q125,110 95,105" stroke="url(#leafGradTop)" stroke-width="2" />
+    <path d="M148,135 Q135,120 105,120" stroke="url(#leafGradTop)" stroke-width="2" />
+    
+    <path d="M148,135 Q175,100 215,88" stroke="url(#leafGradTop)" stroke-width="2.5" />
+    <path d="M148,135 Q170,110 200,105" stroke="url(#leafGradTop)" stroke-width="2" />
+    <path d="M148,135 Q160,120 190,120" stroke="url(#leafGradTop)" stroke-width="2" />
+
+    <path d="M148,135 Q145,90 140,55" stroke="url(#leafGradTop)" stroke-width="2.5" />
+    <path d="M148,135 Q152,90 158,55" stroke="url(#leafGradTop)" stroke-width="2.5" />
+    <path d="M148,135 Q138,95 125,65" stroke="url(#leafGradTop)" stroke-width="2" />
+    <path d="M148,135 Q158,95 172,65" stroke="url(#leafGradTop)" stroke-width="2" />
+
+    <!-- Left Branch Fronds -->
+    <path d="M110,165 Q80,130 55,125 M110,165 Q85,145 60,142 M110,165 Q92,155 70,158" stroke="url(#leafGradDark)" stroke-width="2.2" />
+    <path d="M128,190 Q98,160 70,160 M128,190 Q105,175 78,178 M128,190 Q112,185 90,192" stroke="url(#leafGradDark)" stroke-width="2" />
+
+    <!-- Right Branch Fronds -->
+    <path d="M188,160 Q218,125 245,120 M188,160 Q212,140 238,138 M188,160 Q205,150 228,152" stroke="url(#leafGradTop)" stroke-width="2.2" />
+    <path d="M170,188 Q200,158 228,158 M170,188 Q193,172 220,175 M170,188 Q185,182 208,188" stroke="url(#leafGradTop)" stroke-width="2" />
+
+    <!-- Lower Outer Fronds -->
+    <path d="M85,200 Q58,175 35,182 M85,200 Q62,190 42,198 M85,200 Q68,202 50,212" stroke="url(#leafGradDark)" stroke-width="2" />
+    <path d="M215,190 Q242,165 268,172 M215,190 Q238,180 260,190 M215,190 Q230,195 250,205" stroke="url(#leafGradTop)" stroke-width="2" />
+  </g>
+</svg>
