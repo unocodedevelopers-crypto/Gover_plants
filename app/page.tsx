@@ -3,7 +3,6 @@ import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import {
   getProductsByCollection,
-  collectionsList,
 } from "@/lib/data";
 import Features from "@/components/Features";
 import CountdownTimer from "@/components/CountdownTimer";
@@ -92,7 +91,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col items-center justify-center text-center">
             <h2 className="text-3xl font-bold text-neutral-800">
-              Today's Deals
+              Today&apos;s Deals
             </h2>
             <div className="mt-4 h-1 w-16 bg-[#8dc63f]"></div>
           </div>
