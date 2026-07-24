@@ -14,7 +14,7 @@ export default function Home() {
   const bestSellers = getProductsByCollection("best-seller").slice(0, 4);
   const featured = getProductsByCollection("featured").slice(0, 4);
   const topRated = getProductsByCollection("top-rated").slice(0, 4);
-  
+
   // Use products further down the catalog for "Today's Deals" so they don't duplicate other sections
   const dealsProducts = getProductsByCollection("all").slice(12, 16);
 
@@ -96,16 +96,16 @@ export default function Home() {
             </h2>
             <div className="mt-4 h-1 w-16 bg-[#8dc63f]"></div>
           </div>
-          
+
           <div className="mb-10 flex items-center justify-between bg-[#8dc63f] px-4 py-4 text-white sm:px-8">
             <button className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-neutral-600 transition hover:bg-white hover:text-black">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
             </button>
             <div className="text-lg font-bold tracking-widest sm:text-2xl">
               ENDS IN: <CountdownTimer />
             </div>
             <button className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-neutral-600 transition hover:bg-white hover:text-black">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </button>
           </div>
 
@@ -119,63 +119,72 @@ export default function Home() {
 
       {/* Bestseller Products */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-10 flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        <div className="mb-12 text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-neutral-800 sm:text-3xl">
             Bestseller Products
           </h2>
-          <Link
-            href="/collections/best-seller"
-            className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
-          >
-            View all →
-          </Link>
+          <div className="mx-auto mt-2 h-[3px] w-12 rounded-full bg-emerald-500" />
         </div>
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
           {bestSellers.map((p) => (
             <ProductCard key={p.handle} product={p} />
           ))}
         </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/collections/best-seller"
+            className="inline-block text-sm font-semibold text-[#006837] hover:underline"
+          >
+            View all Bestsellers →
+          </Link>
+        </div>
       </section>
 
       {/* Top Rated */}
       <section className="bg-neutral-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 flex items-end justify-between">
-            <h2 className="text-2xl font-bold text-neutral-900 sm:text-3xl">
+          <div className="mb-12 text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-neutral-800 sm:text-3xl">
               Top Rated
             </h2>
-            <Link
-              href="/collections/top-rated"
-              className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
-            >
-              View all →
-            </Link>
+            <div className="mx-auto mt-2 h-[3px] w-12 rounded-full bg-emerald-500" />
           </div>
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
             {topRated.map((p) => (
               <ProductCard key={p.handle} product={p} />
             ))}
           </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/collections/top-rated"
+              className="inline-block text-sm font-semibold text-[#006837] hover:underline"
+            >
+              View all Top Rated →
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Featured */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mb-10 flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-neutral-900 sm:text-3xl">
+        <div className="mb-12 text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-neutral-800 sm:text-3xl">
             Featured
           </h2>
-          <Link
-            href="/collections/featured"
-            className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
-          >
-            View all →
-          </Link>
+          <div className="mx-auto mt-2 h-[3px] w-12 rounded-full bg-emerald-500" />
         </div>
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
           {featured.map((p) => (
             <ProductCard key={p.handle} product={p} />
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/collections/featured"
+            className="inline-block text-sm font-semibold text-[#006837] hover:underline"
+          >
+            View all Featured →
+          </Link>
         </div>
       </section>
     </div>

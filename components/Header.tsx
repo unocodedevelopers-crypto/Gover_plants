@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "Plants", href: "/collections/plants" },
   { label: "Pots", href: "/collections/pots" },
   { label: "Soils", href: "/collections/soils" },
@@ -14,7 +13,7 @@ const navLinks = [
   { label: "About Us", href: "/about-us" },
   { label: "Contact", href: "/contact-us" },
 ];
-
+// { label: "Home", href: "/" },
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);

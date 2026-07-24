@@ -2,19 +2,45 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-200 bg-neutral-50">
+    <footer className="border-t border-emerald-100 bg-[#f2f8f2]">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
         <div>
           <h3 className="text-lg font-bold tracking-wide text-[#006837]">GOVER GARDEN CENTRE</h3>
           <p className="mt-3 text-sm text-neutral-600">
-            123 Main Street, Anytown, CA 12345 – USA
+            5/(1), Near Sithik Nagar,
+            <br />
+            Vadakku Thottappaguthi, Idikarai,
+            <br />
+            Coimbatore - 641 022, Tamil Nadu, India.
           </p>
-          <p className="mt-1 text-sm text-neutral-600">
-            Mobile: (08) 123 456 789
+          <p className="mt-2 text-sm text-neutral-600">
+            Phone : 0422 2441494
+            <br />
+            Fax : 0422 2441494
+            <br />
+            Mobile : +91 97917 68498
           </p>
-          <p className="mt-1 text-sm text-neutral-600">
-            yourmail@domain.com
+          <p className="mt-2 text-sm text-neutral-600">
+            Email :{" "}
+            <a
+              href="mailto:goverindia@gmail.com"
+              className="text-[#006837] underline transition hover:text-emerald-800"
+            >
+              goverindia@gmail.com
+            </a>
           </p>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
+            Products
+          </h4>
+          <ul className="mt-4 space-y-2 text-sm text-neutral-600">
+            <li><Link href="/collections/plants" className="hover:text-neutral-950">Plants</Link></li>
+            <li><Link href="/collections/pots" className="hover:text-neutral-950">Pots & Planters</Link></li>
+            <li><Link href="/collections/soils" className="hover:text-neutral-950">Soils & Fertilizers</Link></li>
+            <li><Link href="/collections/gardening-decor" className="hover:text-neutral-950">Gardening Decor</Link></li>
+          </ul>
         </div>
 
         <div>
@@ -39,32 +65,10 @@ export default function Footer() {
             <li><Link href="/faq" className="hover:text-neutral-950">FAQ</Link></li>
           </ul>
         </div>
-
-        <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
-            Newsletter
-          </h4>
-          <p className="mt-4 text-sm text-neutral-600">
-            Subscribe for updates on new arrivals and offers.
-          </p>
-          <form className="mt-3 flex gap-2">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="whitespace-nowrap rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800"
-            >
-              Join
-            </button>
-          </form>
-        </div>
       </div>
 
       <div className="border-t border-neutral-200 py-6 text-center text-xs text-neutral-500">
-        © {new Date().getFullYear()} Vesoz. All rights reserved.
+        © {new Date().getFullYear()} Gover Garden Centre. All rights reserved.
       </div>
     </footer>
   );
