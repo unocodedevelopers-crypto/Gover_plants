@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function HeroCarousel() {
   const slide = {
-    video: "/videos/video2.mp4",
+    video: "/videos/banner.mp4",
     tagline: "#Cinematic Beauty",
     title1: "Nature In",
     title2: "Beautiful Motion",
