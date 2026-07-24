@@ -35,29 +35,29 @@ export default function Home() {
           {[
             {
               title: "Plants",
-              count: 18,
-              handle: "top-rated",
+              count: 14,
+              handle: "plants",
               bg: "bg-[#d8f8e8]", // light mint blue/green
               image: "/images/products/1-new-and-sale-badge-product.png",
             },
             {
               title: "Pots",
-              count: 14,
-              handle: "featured",
+              count: 10,
+              handle: "pots",
               bg: "bg-[#e2f9d7]", // soft pastel green
               image: "/images/categories/pots.png",
             },
             {
               title: "Soils",
-              count: 12,
-              handle: "best-seller",
+              count: 8,
+              handle: "soils",
               bg: "bg-[#d9f5fc]", // soft cyan/sky blue
               image: "/images/categories/soils.png",
             },
             {
               title: "Gardening Decor",
-              count: 18,
-              handle: "top-rated",
+              count: 9,
+              handle: "gardening-decor",
               bg: "bg-[#faead6]", // soft warm peach/beige
               image: "/images/categories/decor.png",
             },

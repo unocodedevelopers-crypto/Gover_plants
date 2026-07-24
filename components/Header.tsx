@@ -2,26 +2,71 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Shop", href: "/collections/all" },
-  { label: "Best Sellers", href: "/collections/best-seller" },
-  { label: "Featured", href: "/collections/featured" },
-  { label: "Top Rated", href: "/collections/top-rated" },
+  { label: "Plants", href: "/collections/plants" },
+  { label: "Pots", href: "/collections/pots" },
+  { label: "Soils", href: "/collections/soils" },
+  { label: "Gardening Decor", href: "/collections/gardening-decor" },
   { label: "About Us", href: "/about-us" },
   { label: "Contact", href: "/contact-us" },
-  { label: "FAQ", href: "/faq" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const [preloaderActive, setPreloaderActive] = useState(true);
   const { totalCount, openCart } = useCart();
 
+  useEffect(() => {
+    // Reveal header logo after preloader flight completes (at 2.2s)
+    const timer = setTimeout(() => {
+      setPreloaderActive(false);
+    }, 2200);
+
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Add shadow/border style if scrolled down past 20px
+      if (currentScrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      // Hide header on scroll down (if scrolled > 100px), show header on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur">
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 border-b transition-all duration-300 ease-in-out ${
+        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      } ${
+        scrolled
+          ? "border-neutral-200 bg-white/95 backdrop-blur-md shadow-sm"
+          : "border-transparent bg-white"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -29,7 +74,9 @@ export default function Header() {
             alt="Gover Garden Centre"
             width={320}
             height={157}
-            className="h-16 w-auto sm:h-20 object-contain"
+            className={`h-16 w-auto sm:h-20 object-contain transition-opacity duration-300 ${
+              preloaderActive ? "opacity-0" : "opacity-100"
+            }`}
             priority
           />
         </Link>
