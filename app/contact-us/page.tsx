@@ -1,72 +1,133 @@
+import Link from "next/link";
+
 export default function ContactUsPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-neutral-900 sm:text-4xl">
-        Contact Us
-      </h1>
-      <p className="mt-4 max-w-2xl text-neutral-600">
-        Have a question about an order, a product, or anything else?
-        We&apos;d love to hear from you.
-      </p>
+    <div>
+      {/* Breadcrumbs */}
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-sm text-neutral-500">
+        <Link href="/" className="hover:text-neutral-900">Home</Link>
+        <span className="mx-2">&gt;</span>
+        <span className="text-[#8dc63f]">Contact Us</span>
+      </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
-        <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-900">
-            Tell us your project
-          </h2>
-          <form className="mt-6 space-y-4">
-            <div>
-              <label className="mb-1 block text-sm font-medium text-neutral-700">
-                Name
-              </label>
-              <input
-                type="text"
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label className="mb-1 block text-sm font-medium text-neutral-700">
-                Email
-              </label>
-              <input
-                type="email"
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
-                placeholder="you@example.com"
-              />
-            </div>
-            <div>
-              <label className="mb-1 block text-sm font-medium text-neutral-700">
-                Message
-              </label>
-              <textarea
-                rows={5}
-                className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-neutral-900 focus:outline-none"
-                placeholder="How can we help?"
-              />
-            </div>
-            <button
-              type="submit"
-              className="rounded-md bg-neutral-900 px-6 py-3 text-sm font-semibold text-white hover:bg-neutral-800"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
+      {/* Map Section */}
+      <div className="w-full">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125322.51341065182!2d76.88483244837853!3d11.013968600128795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1716353903123!5m2!1sen!2sin"
+          width="100%"
+          height="400"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
+          title="Store Location Map"
+        ></iframe>
+      </div>
 
-        <div className="space-y-6 text-sm text-neutral-600">
+      {/* Contact Form and Details */}
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {/* Left Column: Form */}
           <div>
-            <h3 className="font-semibold text-neutral-900">Address</h3>
-            <p className="mt-1">123 Main Street, Anytown, CA 12345 – USA</p>
+            <h2 className="text-2xl font-bold uppercase text-neutral-900 sm:text-3xl">
+              Tell Us Your Project
+            </h2>
+            <form className="mt-8 space-y-6">
+              <div>
+                <label className="mb-2 block text-sm text-neutral-600">
+                  Your Name *
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-neutral-200 p-3 text-sm focus:border-[#8dc63f] focus:outline-none"
+                  placeholder="Full Name"
+                  required
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-neutral-600">
+                  Your Email *
+                </label>
+                <input
+                  type="email"
+                  className="w-full border border-neutral-200 p-3 text-sm focus:border-[#8dc63f] focus:outline-none"
+                  placeholder="Email Address"
+                  required
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-neutral-600">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  className="w-full border border-neutral-200 p-3 text-sm focus:border-[#8dc63f] focus:outline-none"
+                  placeholder="Subject"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm text-neutral-600">
+                  Your Message
+                </label>
+                <textarea
+                  rows={6}
+                  className="w-full border border-neutral-200 p-3 text-sm focus:border-[#8dc63f] focus:outline-none"
+                  placeholder="Message"
+                />
+              </div>
+              <button
+                type="submit"
+                className="rounded-sm bg-[#a4d65e] px-8 py-3 text-sm font-bold text-white transition hover:bg-[#8dc63f]"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
-          <div>
-            <h3 className="font-semibold text-neutral-900">Phone</h3>
-            <p className="mt-1">Mobile: (08) 123 456 789</p>
-            <p>Hotline: 1009 678 456</p>
-          </div>
-          <div>
-            <h3 className="font-semibold text-neutral-900">Email</h3>
-            <p className="mt-1">yourmail@domain.com</p>
+
+          {/* Right Column: Contact Info */}
+          <div className="bg-[#f8f8f8] p-8 sm:p-12">
+            <h2 className="text-2xl font-medium text-neutral-900">
+              Contact Us
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-neutral-600">
+              Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human. qui sequitur mutationem consuetudium lectorum. Mirum est notare quam
+            </p>
+
+            <div className="mt-8 space-y-6">
+              {/* Address */}
+              <div className="border-b border-neutral-200 pb-6">
+                <div className="flex items-center space-x-3 text-lg font-medium text-neutral-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <h3>Address</h3>
+                </div>
+                <p className="mt-3 text-sm text-neutral-600">
+                  123 Main Street, Anytown, CA 12345 – USA
+                </p>
+              </div>
+
+              {/* Phone */}
+              <div className="border-b border-neutral-200 pb-6">
+                <div className="flex items-center space-x-3 text-lg font-medium text-neutral-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <h3>Phone</h3>
+                </div>
+                <div className="mt-3 space-y-1 text-sm text-neutral-600">
+                  <p>Mobile: (08) 123 456 789</p>
+                  <p>Hotline: 1009 678 456</p>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="pb-2">
+                <div className="flex items-center space-x-3 text-lg font-medium text-neutral-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  <h3>Email</h3>
+                </div>
+                <div className="mt-3 space-y-1 text-sm text-neutral-600">
+                  <p>yourmail@domain.com</p>
+                  <p>mail@yourmail.com</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
