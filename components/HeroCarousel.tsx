@@ -17,6 +17,13 @@ const slides = [
     title1: "Indoor Plants",
     title2: "For Your Home",
     desc: "Bring life to your living space with our beautifully curated selection of low-maintenance indoor plants."
+  },
+  {
+    image: "/images/products/hero-bg-3.jpg",
+    tagline: "#Exotic Collection",
+    title1: "Rare Purple",
+    title2: "Foliage Plants",
+    desc: "Discover our unique collection of vibrant purple plants to add an exotic touch of color to your home or garden."
   }
 ];
 
@@ -26,14 +33,14 @@ export default function HeroCarousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000); // 6 seconds per slide
+    }, 4000); // 4 seconds per slide
     return () => clearInterval(timer);
   }, []);
 
   const slide = slides[current];
 
   return (
-    <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-neutral-900">
+    <section className="relative flex min-h-[60vh] py-20 items-center justify-center overflow-hidden bg-neutral-900">
       {/* Background Images with Crossfade */}
       {slides.map((s, index) => (
         <div
@@ -61,7 +68,7 @@ export default function HeroCarousel() {
         <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#98c156] opacity-0 animate-fade-in-up">
           {slide.tagline}
         </p>
-        <h1 className="mt-6 text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-tight flex flex-wrap justify-center gap-x-3 sm:gap-x-0">
+        <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl leading-tight flex flex-wrap justify-center gap-x-3 sm:gap-x-0">
           <div>
             {slide.title1.split("").map((char, index) => (
               <span
