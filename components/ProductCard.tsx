@@ -8,10 +8,12 @@ import { useCart } from "@/lib/cart-context";
 export default function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
   
-  // Get a unique secondary image for the hover state
+  // Get a unique, pseudo-random secondary image for the hover state to avoid showing the adjacent product
   const currentIndex = products.findIndex(p => p.handle === product.handle);
+  // Using a prime multiplier (11) guarantees that adjacent products on the screen
+  // get hover images that are widely separated in the catalog (11 spots apart)
   const hoverImage = currentIndex !== -1 
-    ? products[(currentIndex + 1) % products.length].image
+    ? products[(currentIndex * 11 + 13) % products.length].image
     : "/images/products/demo-product-title-1.png";
 
   return (

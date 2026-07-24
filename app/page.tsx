@@ -14,12 +14,13 @@ export default function Home() {
   const bestSellers = getProductsByCollection("best-seller").slice(0, 4);
   const featured = getProductsByCollection("featured").slice(0, 4);
   const topRated = getProductsByCollection("top-rated").slice(0, 4);
-  const newProducts = getProductsByCollection("all").slice(0, 8);
+  
+  // Use products further down the catalog for "Today's Deals" so they don't duplicate other sections
+  const dealsProducts = getProductsByCollection("all").slice(12, 16);
 
   return (
     <div>
       <HeroCarousel />
-
 
       {/* Featured Categories */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -109,7 +110,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-            {newProducts.slice(0, 4).map((p) => (
+            {dealsProducts.map((p) => (
               <ProductCard key={p.handle} product={p} />
             ))}
           </div>
