@@ -6,6 +6,8 @@ import {
   collectionsList,
 } from "@/lib/data";
 
+import HeroCarousel from "@/components/HeroCarousel";
+
 export default function Home() {
   const bestSellers = getProductsByCollection("best-seller").slice(0, 4);
   const featured = getProductsByCollection("featured").slice(0, 4);
@@ -14,38 +16,8 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-neutral-950 text-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-32">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-400">
-              New Season Arrivals
-            </p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Timeless pieces, <br /> made for everyday.
-            </h1>
-            <p className="mt-6 max-w-md text-neutral-300">
-              Discover our latest collection of thoughtfully designed
-              essentials, crafted for comfort and built to last.
-            </p>
-            <Link
-              href="/collections/all"
-              className="mt-8 inline-block rounded-md bg-white px-6 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-neutral-200"
-            >
-              Shop Now
-            </Link>
-          </div>
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-neutral-800 lg:aspect-[4/3]">
-            <Image
-              src={newProducts[0]?.image ?? "/images/site/logo.png"}
-              alt="Featured hero product"
-              fill
-              className="object-cover opacity-90"
-              priority
-            />
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
+
 
       {/* Featured Categories */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
