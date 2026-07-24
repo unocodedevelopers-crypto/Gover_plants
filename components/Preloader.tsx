@@ -28,29 +28,29 @@ export default function Preloader() {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#006837] transition-opacity duration-500 ${
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-white transition-opacity duration-500 ${
         fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
       <div className="relative flex flex-col items-center justify-center p-6 text-center">
-        {/* Animated Gover Logo with gentle pulse & float */}
+        {/* Animated Gover Logo with gentle pulse */}
         <div className="animate-pulse">
           <Image
             src="/images/site/gover-logo.svg"
             alt="Gover Garden Centre"
             width={360}
             height={175}
-            className="h-24 w-auto sm:h-32 object-contain filter drop-shadow-lg"
+            className="h-24 w-auto sm:h-32 object-contain"
             priority
           />
         </div>
 
         {/* Elegant Spinner / Shimmer Bar */}
-        <div className="mt-8 relative h-1 w-48 overflow-hidden rounded-full bg-emerald-900/50">
-          <div className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-white animate-[shimmer_1.5s_infinite]" />
+        <div className="mt-8 relative h-1 w-48 overflow-hidden rounded-full bg-emerald-100">
+          <div className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-[#006837] animate-[shimmer_1.5s_infinite]" />
         </div>
 
-        <p className="mt-4 text-xs font-semibold tracking-[0.3em] uppercase text-emerald-100/80 animate-pulse">
+        <p className="mt-4 text-xs font-bold tracking-[0.3em] uppercase text-[#006837] animate-pulse">
           Loading Green Paradise...
         </p>
       </div>
