@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useWishlist } from "@/lib/wishlist-context";
 import { useCart } from "@/lib/cart-context";
+import { Product } from "@/lib/data";
 
 export default function WishlistDrawer() {
   const { items, isOpen, closeWishlist, removeItem } = useWishlist();
-  const { addItem, openCart } = useCart();
+  const { addItem } = useCart();
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     addItem(product, 1);
     removeItem(product.handle);
     closeWishlist();
