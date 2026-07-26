@@ -94,15 +94,15 @@ export default function ContactUsPage() {
                 <h2 className="text-2xl font-semibold text-neutral-900">
                   Contact Us
                 </h2>
-                {/* Unmodified Mascot image with floating animation */}
-                <div className="w-16 h-20 relative animate-bounce">
-                  <Image
-                    src="/mascot.svg"
-                    alt="Gover Mascot"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+                {/* Mascot image with unoptimized prop to ensure SVG CSS animations render */}
+                <Image
+                  src="/mascot.svg"
+                  alt="Gover Mascot"
+                  width={75}
+                  height={98}
+                  unoptimized
+                  className="h-16 w-auto object-contain"
+                />
               </div>
 
               <p className="mt-4 text-sm leading-relaxed text-neutral-600">

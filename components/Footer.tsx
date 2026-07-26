@@ -1,11 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="border-t border-emerald-100 bg-[#f2f8f2]">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
         <div>
-          <h3 className="text-lg font-bold tracking-wide text-[#006837]">GOVER GARDEN CENTRE</h3>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/mascot.svg"
+              alt="Gover Garden Centre Mascot"
+              width={48}
+              height={62}
+              unoptimized
+              className="h-12 w-auto object-contain shrink-0"
+            />
+            <h3 className="text-lg font-bold tracking-wide text-[#006837]">
+              GOVER GARDEN CENTRE
+            </h3>
+          </div>
           <p className="mt-3 text-sm text-neutral-600">
             5/(1), Near Sithik Nagar,
             <br />
@@ -37,8 +50,8 @@ export default function Footer() {
           </h4>
           <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             <li><Link href="/collections/plants" className="hover:text-neutral-950">Plants</Link></li>
-            <li><Link href="/collections/pots" className="hover:text-neutral-950">Pots & Planters</Link></li>
-            <li><Link href="/collections/soils" className="hover:text-neutral-950">Soils & Fertilizers</Link></li>
+            <li><Link href="/collections/pots" className="hover:text-neutral-950">Pots &amp; Planters</Link></li>
+            <li><Link href="/collections/soils" className="hover:text-neutral-950">Soils &amp; Fertilizers</Link></li>
             <li><Link href="/collections/gardening-decor" className="hover:text-neutral-950">Gardening Decor</Link></li>
           </ul>
         </div>
