@@ -7,11 +7,12 @@ import { useCart } from "@/lib/cart-context";
 
 export default function ProductActions({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1);
-  const { addItem } = useCart();
+  const { addItem, closeCart } = useCart();
   const router = useRouter();
 
   const handleBuyNow = () => {
     addItem(product, quantity);
+    closeCart();
     router.push("/checkout");
   };
 

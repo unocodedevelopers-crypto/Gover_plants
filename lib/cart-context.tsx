@@ -39,7 +39,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { product, quantity }];
     });
-    setIsOpen(true);
   };
 
   const removeItem = (handle: string) => {
