@@ -196,6 +196,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Special Offer Banner */}
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center bg-white overflow-hidden">
+          {/* Text Content */}
+          <div className="md:w-1/2 py-12 md:pr-8 flex flex-col justify-center">
+            <p className="text-[#8dc63f] text-sm font-semibold tracking-wider uppercase mb-3">#SPECIAL OFFER</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-neutral-700 mb-1 uppercase">SUCCULENT GARDEN</h2>
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-800 mb-6 uppercase tracking-tight">BOX WOGON</h3>
+            <p className="text-neutral-500 mb-8 max-w-md text-base leading-relaxed">
+              From planter materials to style options, discover which planter is best for your space.
+            </p>
+            <div>
+              <Link href="/collections/all" className="inline-block border-2 border-[#8dc63f] text-[#8dc63f] px-8 py-3 font-semibold hover:bg-[#8dc63f] hover:text-white transition-colors">
+                Explore The Shop
+              </Link>
+            </div>
+          </div>
+          
+          {/* Images Section */}
+          <div className="md:w-1/2 relative h-[350px] md:h-[450px] w-full mt-8 md:mt-0 flex items-center justify-center">
+             <Image src="/images/products/banner.webp" alt="Succulent Garden Banner" fill className="object-contain drop-shadow-lg scale-125 md:scale-[1.35] origin-center" />
+          </div>
+        </div>
+      </section>
+
       {/* Featured */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
