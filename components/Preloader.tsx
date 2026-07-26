@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -53,9 +54,12 @@ export default function Preloader() {
             : "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-125 origin-center"
         }`}
       >
-        <img
+        <Image
           src="/images/site/gover-logo.svg"
           alt="Gover Garden Centre"
+          width={320}
+          height={157}
+          priority
           className={`object-contain transition-all duration-1000 ${
             shrinking ? "h-16 sm:h-20 w-auto" : "h-28 sm:h-36 w-auto"
           }`}
