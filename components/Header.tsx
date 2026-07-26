@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useCart } from "@/lib/cart-context";
 import { useWishlist } from "@/lib/wishlist-context";
-import { products, Product } from "@/lib/data";
+import { products } from "@/lib/data";
 
 const navLinks = [
   { label: "Plants", href: "/collections/plants" },
@@ -25,13 +25,26 @@ export default function Header() {
   // Search states
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { totalCount, openCart } = useCart();
   const { openWishlist, totalCount: wishlistCount } = useWishlist();
+
+  // Compute live search filtered products with useMemo
+  const filteredProducts = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase().trim();
+    return products
+      .filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.handle.toLowerCase().includes(q) ||
+          p.collections.some((c) => c.toLowerCase().includes(q))
+      )
+      .slice(0, 5);
+  }, [searchQuery]);
 
   useEffect(() => {
     // Reveal header logo after preloader flight completes (at 2.2s)
@@ -67,22 +80,6 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  // Handle live search input filtering
-  useEffect(() => {
-    if (!searchQuery.trim()) {
-      setFilteredProducts([]);
-      return;
-    }
-    const q = searchQuery.toLowerCase().trim();
-    const matches = products.filter(
-      (p) =>
-        p.title.toLowerCase().includes(q) ||
-        p.handle.toLowerCase().includes(q) ||
-        p.collections.some((c) => c.toLowerCase().includes(q))
-    );
-    setFilteredProducts(matches.slice(0, 5));
-  }, [searchQuery]);
 
   // Close search on click outside
   useEffect(() => {
