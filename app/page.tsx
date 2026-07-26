@@ -8,14 +8,15 @@ import Features from "@/components/Features";
 import CountdownTimer from "@/components/CountdownTimer";
 
 import HeroCarousel from "@/components/HeroCarousel";
+import AutoScrollCarousel from "@/components/AutoScrollCarousel";
 
 export default function Home() {
-  const bestSellers = getProductsByCollection("best-seller").slice(0, 4);
+  const bestSellers = getProductsByCollection("best-seller");
   const featured = getProductsByCollection("featured").slice(0, 4);
   const topRated = getProductsByCollection("top-rated").slice(0, 4);
 
   // Use products further down the catalog for "Today's Deals" so they don't duplicate other sections
-  const dealsProducts = getProductsByCollection("all").slice(12, 16);
+  const dealsProducts = getProductsByCollection("all").slice(12, 24);
 
   return (
     <div>
@@ -108,11 +109,13 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+          <AutoScrollCarousel>
             {dealsProducts.map((p) => (
-              <ProductCard key={p.handle} product={p} />
+              <div key={p.handle} className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex-none snap-start">
+                <ProductCard product={p} />
+              </div>
             ))}
-          </div>
+          </AutoScrollCarousel>
         </div>
       </section>
 
@@ -124,10 +127,39 @@ export default function Home() {
           </h2>
           <div className="mx-auto mt-2 h-[3px] w-12 rounded-full bg-emerald-500" />
         </div>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-          {bestSellers.map((p) => (
-            <ProductCard key={p.handle} product={p} />
-          ))}
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Left Banner */}
+          <div className="lg:w-2/5 xl:w-1/3 relative overflow-hidden rounded-xl p-8 flex flex-col justify-end min-h-[350px] group shadow-sm">
+            {/* Background Video */}
+            <video 
+              src="/videos/sidebanner.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Subtle dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/20" />
+            <div className="relative z-10 text-white">
+              <h3 className="text-3xl font-extrabold mb-3 leading-tight text-white drop-shadow-md">
+                Buy a great<br />Coconut
+              </h3>
+              <p className="text-white/90 mb-6 font-medium">Top selling picks for your space</p>
+              <Link href="/collections/best-seller" className="inline-block bg-white text-[#006837] px-6 py-3 font-bold hover:bg-neutral-50 transition-colors shadow-lg">
+                Shop Now
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Product Grid */}
+          <div className="lg:w-3/5 xl:w-2/3">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 h-full">
+              {bestSellers.slice(0, 6).map((p) => (
+                <ProductCard key={p.handle} product={p} />
+              ))}
+            </div>
+          </div>
         </div>
         <div className="mt-8 text-center">
           <Link

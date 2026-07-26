@@ -3,7 +3,7 @@ import React from "react";
 export default function Features() {
   return (
     <section className="border-t border-b border-neutral-100 bg-white py-12 my-8">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-14 px-4 sm:flex-row sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-12 px-4 md:gap-24 lg:gap-32 sm:flex-row sm:px-6 lg:px-8">
         {/* Feature 1 */}
         <div className="flex items-center gap-4">
           <svg
