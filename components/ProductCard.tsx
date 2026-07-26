@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product, products } from "@/lib/data";
 import { useCart } from "@/lib/cart-context";
+import { useWishlist } from "@/lib/wishlist-context";
 
 export default function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
+  const { toggleItem, hasItem } = useWishlist();
   
   // Get a unique, pseudo-random secondary image for the hover state to avoid showing the adjacent product
   const currentIndex = products.findIndex(p => p.handle === product.handle);
@@ -15,6 +17,8 @@ export default function ProductCard({ product }: { product: Product }) {
   const hoverImage = currentIndex !== -1 
     ? products[(currentIndex * 11 + 13) % products.length].image
     : "/images/products/demo-product-title-1.png";
+
+  const isInWishlist = hasItem(product.handle);
 
   return (
     <div className="group relative flex flex-col border border-neutral-100 bg-white">
@@ -43,8 +47,12 @@ export default function ProductCard({ product }: { product: Product }) {
           <button className="flex p-2 text-neutral-600 transition hover:text-black" title="Quick View">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
-          <button className="flex p-2 text-neutral-600 transition hover:text-black" title="Wishlist">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <button 
+            onClick={() => toggleItem(product)}
+            className={`flex p-2 transition hover:text-black ${isInWishlist ? 'text-red-500' : 'text-neutral-600'}`} 
+            title={isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill={isInWishlist ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
           </button>
           <button className="flex p-2 text-neutral-600 transition hover:text-black" title="Compare">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="21" y2="21"/><line x1="4" x2="20" y1="14" y2="14"/><line x1="4" x2="20" y1="7" y2="7"/><line x1="9" x2="9" y1="21" y2="18"/><line x1="9" x2="9" y1="10" y2="7"/><line x1="15" x2="15" y1="21" y2="18"/><line x1="15" x2="15" y1="10" y2="7"/></svg>

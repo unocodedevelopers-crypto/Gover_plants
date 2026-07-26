@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useCart } from "@/lib/cart-context";
+import { useWishlist } from "@/lib/wishlist-context";
 
 const navLinks = [
   { label: "Plants", href: "/collections/plants" },
@@ -20,6 +21,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [preloaderActive, setPreloaderActive] = useState(true);
   const { totalCount, openCart } = useCart();
+  const { openWishlist, totalCount: wishlistCount } = useWishlist();
 
   useEffect(() => {
     // Reveal header logo after preloader flight completes (at 2.2s)
@@ -93,6 +95,26 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
+          <button
+            onClick={openWishlist}
+            className="flex items-center gap-2 text-neutral-800 transition hover:text-black"
+            aria-label="Open wishlist"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+            {wishlistCount > 0 && (
+              <span className="text-lg font-semibold">{wishlistCount}</span>
+            )}
+          </button>
+
           <button
             onClick={openCart}
             className="flex items-center gap-2 text-neutral-800 transition hover:text-black"
