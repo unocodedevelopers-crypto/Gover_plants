@@ -50,10 +50,17 @@ export default async function ProductPage({
           <p className="mt-3 text-xl font-medium text-neutral-900">
             ${product.price.toFixed(2)}
           </p>
-          <p className="mt-6 max-w-md text-neutral-600">
-            A thoughtfully crafted piece from our collection — made with
-            quality materials and built for everyday comfort.
-          </p>
+          <div className="mt-6 max-w-md text-neutral-600 space-y-4">
+            <p>
+              A thoughtfully crafted piece from our collection — made with
+              quality materials and built for everyday comfort.
+            </p>
+            <p>
+              Designed to seamlessly blend with your indoor or outdoor spaces, 
+              bringing a touch of nature's tranquility directly into your home. 
+              Enjoy the perfect balance of aesthetics and easy maintenance. Whether you are looking to revitalize your living room, add a splash of green to your office desk, or find the perfect gift for a loved one, this piece offers enduring beauty and a refreshing atmosphere. Hand-selected for its vibrant foliage and robust health, it's ready to thrive in its new environment.
+            </p>
+          </div>
 
           <ProductActions product={product} />
 

@@ -45,9 +45,8 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="absolute right-3 top-3 flex flex-col gap-2 rounded-full bg-white/90 p-1.5 opacity-0 shadow-md backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
           <button
             onClick={() => toggleItem(product)}
-            className={`flex p-2 rounded-full transition hover:bg-neutral-100 ${
-              isInWishlist ? "text-red-500" : "text-neutral-700"
-            }`}
+            className={`flex p-2 rounded-full transition hover:bg-neutral-100 ${isInWishlist ? "text-red-500" : "text-neutral-700"
+              }`}
             title={isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
           >
             <svg
