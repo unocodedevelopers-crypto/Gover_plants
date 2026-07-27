@@ -1,9 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutUsPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+    <div>
+      {/* Breadcrumbs */}
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-sm text-neutral-500">
+        <Link href="/" className="hover:text-neutral-900">Home</Link>
+        <span className="mx-2">&gt;</span>
+        <span className="text-[#8dc63f]">About Us</span>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
         <div className="relative h-64 w-full overflow-hidden rounded-2xl shadow-lg sm:h-80 lg:h-full lg:min-h-[400px]">
           <Image
             src="/images/products/plants_bg.jpg"
@@ -87,6 +96,7 @@ We are one of the outstanding manufacturers of flower pots & plant container. We
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

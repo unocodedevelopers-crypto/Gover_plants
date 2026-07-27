@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import {
   collectionsList,
@@ -23,6 +24,13 @@ export default async function CollectionPage({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* Breadcrumbs */}
+      <div className="mb-6 text-sm text-neutral-500">
+        <Link href="/" className="hover:text-neutral-900">Home</Link>
+        <span className="mx-2">&gt;</span>
+        <span className="text-[#8dc63f]">{collection.title}</span>
+      </div>
+
       <div className="mb-10 max-w-2xl">
         <h1 className="text-3xl font-bold text-neutral-900 sm:text-4xl">
           {collection.title}
