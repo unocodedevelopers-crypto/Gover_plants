@@ -78,13 +78,13 @@ export default function ProductCard({ product }: { product: Product }) {
           </Link>
         </div>
 
-        <div className="mt-3 flex items-center justify-between">
+        <div className="mt-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
           <span className="text-base font-bold text-[#006837]">
             ${product.price.toFixed(2)}
           </span>
           <button
             onClick={() => addItem(product, 1)}
-            className="flex items-center gap-1.5 rounded-full bg-[#006837] px-3.5 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-800 shadow-sm"
+            className="flex w-full sm:w-auto items-center justify-center gap-1.5 rounded-full bg-[#006837] px-3.5 py-2 sm:py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-800 shadow-sm"
             title="Add to Cart"
           >
             <svg
